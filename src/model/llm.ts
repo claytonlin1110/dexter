@@ -108,6 +108,15 @@ const MODEL_FACTORIES: Record<string, ModelFactory> = {
         baseURL: 'https://api.deepseek.com',
       },
     }),
+  glm: (name, opts) =>
+    new ChatOpenAI({
+      model: name.replace(/^glm:/, ''),
+      ...opts,
+      apiKey: getApiKey('GLM_API_KEY'),
+      configuration: {
+        baseURL: 'https://open.bigmodel.cn/api/paas/v4',
+      },
+    }),
   ollama: (name, opts) =>
     new ChatOllama({
       model: name.replace(/^ollama:/, ''),

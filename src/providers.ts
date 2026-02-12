@@ -67,6 +67,13 @@ export const PROVIDERS: ProviderDef[] = [
     fastModel: 'openrouter:openai/gpt-4o-mini',
   },
   {
+    id: 'glm',
+    displayName: 'GLM (Zhipu AI)',
+    modelPrefix: 'glm:',
+    apiKeyEnvVar: 'GLM_API_KEY',
+    fastModel: 'glm:glm-4-flash',
+  },
+  {
     id: 'ollama',
     displayName: 'Ollama',
     modelPrefix: 'ollama:',

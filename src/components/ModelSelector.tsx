@@ -39,6 +39,11 @@ const PROVIDER_MODELS: Record<string, Model[]> = {
     { id: 'deepseek-chat', displayName: 'DeepSeek V3' },
     { id: 'deepseek-reasoner', displayName: 'DeepSeek R1' },
   ],
+  glm: [
+    { id: 'glm:glm-4', displayName: 'GLM-4' },
+    { id: 'glm:glm-4-flash', displayName: 'GLM-4 Flash' },
+    { id: 'glm:codegeex-4', displayName: 'CodeGeeX-4' },
+  ],
 };
 
 // Derive the provider list from the canonical registry, attaching local model lists
@@ -64,7 +69,7 @@ export function getDefaultModelForProvider(providerId: string): string | undefin
 
 export function getModelDisplayName(modelId: string): string {
   // Handle prefixed model IDs (e.g., "ollama:llama3", "openrouter:anthropic/claude-3.5")
-  const normalizedId = modelId.replace(/^(ollama|openrouter):/, '');
+  const normalizedId = modelId.replace(/^(ollama|openrouter|glm):/, '');
   
   // Search through all providers for the model
   for (const provider of PROVIDERS) {
